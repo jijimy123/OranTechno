@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>OranTech</title>
+    <!-- Import Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Import Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <!-- Input for check Menu Burger -->
+        <input type="checkbox" name="check" id="check">
+        <!-- Name -->
+        <!-- <p class="name">Chen Jimmy</p> -->
+        <!-- LOGO -->
+        <!-- <a href="#" class="logo" onclick="PageHome()">
+            <img src="../imgs/logo.png" alt="logo">
+        </a> -->
+        <h2>OranTechno</h2>
+
+        <!-- Navigator -->
+        <nav class="nav">
+            <div class="divider"></div>
+            <a href="../index.html" data-i18n="navHome">Home</a>
+            <a href="../pages/about.html" data-i18n="navAbout">About</a>
+            <a href="../pages/projects.html" data-i18n="navProjects">Projects</a>
+            <a href="../pages/contact.html" data-i18n="navContact">Contact</a>
+        </nav>
+        <label for="check">
+            <i class='bx bx-menu menu'></i>
+            <i class='bx bx-x close-menu'></i>
+        </label>
+    </header>
+
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <select id="language-select" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="zh">中文</option>
+        </select>
+    </div>
+
+    <!-- <div id="contact">
+        <h2 class="title" data-i18n="titleContact">CONTACT US</h2>
+    </div> -->
+
+    <div class="content-box contact-box">
+        <h3 id="contact-subtitle">Get in Touch</h3>
+        <p id="contact-description">
+            Have questions or need support? Feel free to reach out to us through our contact form or email. We're here to help you make the most of our innovative solutions.
+        </p>
+
+        <div class="contact-form">
+            <h3>Send us a Message</h3>
+            <form onsubmit="sendEmail(event)">
+                <input type="text" name="from_name" placeholder="Your Name" required>
+                <input type="email" name="reply_to" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+                <button type="submit">Send</button>
+            </form>            
+        </div>
+
+        <div class="links">
+            <a href="https://www.xiaohongshu.com/explore" target="_blank">
+                <img src="../imgs/logos/redNote.png" alt="redNote_icon">
+            </a>
+
+            <a href="#">
+                <img src="../imgs/logos/wechat_icon.png" alt="wechat_icon">
+            </a>
+
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="../imgs/logos/instagram.png" alt="instagram_icon">
+            </a>
+
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="../imgs/logos/facebook.png" alt="facebook_icon">
+            </a>
+
+            <a href="https://www.tiktok.com" target="_blank">
+                <img src="../imgs/logos/tiktok.png" alt="tiktok_icon">
+            </a>
+
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="../imgs/logos/gmail.png" alt="gmail_icon">
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Star Background -->
+    <div id="universe"></div>
+    
+</body>
+
+<script src="../script.js"></script>
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function() {
+        emailjs.init("AfL01j4S3OveliH36"); // 替换成你的 User ID
+    })();
+
+    function sendEmail(event) {
+        event.preventDefault();
+
+        emailjs.sendForm('service_3x8i6fo', 'template_5iwxihs', event.target)
+            .then(function() {
+                alert('Message sent successfully!');
+            }, function(error) {
+                alert('Failed to send message. Please try again.');
+            });
+    }
+</script>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>OranTechno</title>
+    <!-- Import Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Import Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <!-- Input for check Menu Burger -->
+        <input type="checkbox" name="check" id="check">
+            <!-- LOGO -->
+            <!-- <div id="home">
+                <h2>OranTech</h2>
+            </div> -->
+            <h2>OranTechno</h2>
+            <!-- Name -->
+            <!-- <p class="name">Chen Jimmy</p> -->
+        
+        <!-- Navigator -->
+        <nav class="nav">
+            <div class="divider"></div>
+            <a href="index.html" data-i18n="navHome">Home</a>
+            <a href="./pages/about.html" data-i18n="navAbout">About</a>
+            <a href="./pages/projects.html" data-i18n="navProjects">Projects</a>
+            <a href="./pages/contact.html" data-i18n="navContact">Contact</a>
+        </nav>
+        <label for="check">
+            <i class='bx bx-menu menu'></i>
+            <i class='bx bx-x close-menu'></i>
+        </label>
+    </header>
+
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <select id="language-select" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="zh">中文</option>
+        </select>
+    </div>
+
+
+
+    <div class="content-box content-home">
+        <!-- <h3>Welcome to our page</h3> -->
+        <p class="slogan">We Design, You Shine. </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae facere alias, voluptates ratione quos nulla ad saepe suscipit quod molestiae enim pariatur mollitia non odio et. Odit quos nostrum sapiente?
+        </p>
+    </div>
+
+    <!-- Star Background -->
+    <div id="universe"></div>
+    
+</body>
+
+<script src="script.js"></script>
+
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>OranTech</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header>
+        <input type="checkbox" name="check" id="check">
+        <!-- <a href="#" class="logo" onclick="PageHome()">
+            <img src="../imgs/logo.png" alt="logo">
+        </a> -->
+        <h2>OranTechno</h2>
+        <nav class="nav">
+            <div class="divider"></div>
+            <a href="../index.html" data-i18n="navHome">Home</a>
+            <a href="../pages/about.html" data-i18n="navAbout">About</a>
+            <a href="../pages/projects.html" data-i18n="navProjects">Projects</a>
+            <a href="../pages/contact.html" data-i18n="navContact">Contact</a>
+        </nav>
+        <label for="check">
+            <i class='bx bx-menu menu'></i>
+            <i class='bx bx-x close-menu'></i>
+        </label>
+    </header>
+
+    <div class="language-selector">
+        <select id="language-select" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="zh">中文</option>
+        </select>
+    </div>
+
+    <!-- Version 2 -->
+    <!-- <div id="projects">
+        <h2 class="title" data-i18n="titleProjects">PROJECTS</h2>
+        <div class="grid-container">
+            <div class="project-card">
+                <img src="../imgs/tim2020.png" alt="Project 1">
+                <h3>TIM 2020</h3>
+                <p>This is my 1er Project.</p>
+                <a href="https://tim.cmaisonneuve.qc.ca/" target="_blank">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="../imgs/heyyangyang.png" alt="Project 2">
+                <h3>Hey Yang Yang</h3>
+                <p>This is my 2e Project.</p>
+                <a href="https://heyyangyang.ca/" target="_blank">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="../imgs/blr.png" alt="Project 3">
+                <h3>BlueLight Roofing Solutions</h3>
+                <p>This is my 3e Project.</p>
+                <a href="https://bluelightroofing.com/" target="_blank">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="../imgs/jimmyPF.png" alt="Project 4">
+                <h3>Jimmy's Portfolio</h3>
+                <p>This is my 4e Project.</p>
+                <a href="https://chenhaoyang-mon-portfolio.vercel.app/" target="_blank">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="../imgs/project_01.jpeg" alt="Project 5">
+                <h3>Project 5</h3>
+                <p>This is my 5e Project.</p>
+                <a href="../project_pages/project05.html">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="../imgs/project_01.jpeg" alt="Project 6">
+                <h3>Project 6</h3>
+                <p>This is my 6e Project.</p>
+                <a href="../project_pages/project06.html">View Project</a>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Version 3 -->
+    <div class="filter-buttons">
+        <button onclick="filterProjects('all')">All</button>
+        <button onclick="filterProjects('web')">Web</button>
+        <button onclick="filterProjects('resume')">Resume</button>
+        <button onclick="filterProjects('design')">Design</button>
+    </div>
+
+    <div id="projects">
+        <!-- <h2 class="title" data-i18n="titleProjects">PROJECTS</h2> -->
+
+        <div class="grid-container">
+            <div class="project-card" data-category="web">
+                <img src="../imgs/tim2020.png" alt="Project 1">
+                <h3>TIM 2020</h3>
+                <p>This is my Web Project.</p>
+                <a href="https://tim.cmaisonneuve.qc.ca/" target="_blank">View Project</a>
+            </div>
+
+            <div class="project-card" data-category="resume">
+                <img src="../imgs/heyyangyang.png" alt="Project 2">
+                <h3>Hey Yang Yang</h3>
+                <p>This is my App Project.</p>
+                <a href="https://heyyangyang.ca/" target="_blank">View Project</a>
+            </div>
+
+            <div class="project-card" data-category="design">
+                <img src="../imgs/blr.png" alt="Project 3">
+                <h3>BlueLight Roofing Solutions</h3>
+                <p>This is my Design Project.</p>
+                <a href="https://bluelightroofing.com/" target="_blank">View Project</a>
+            </div>
+
+            <div class="project-card" data-category="web">
+                <img src="../imgs/project_01.jpeg" alt="Project 4">
+                <h3>Project 4</h3>
+                <p>This is my Web Project.</p>
+                <a href="../project_pages/project01.html">View Project</a>
+            </div>
+
+            <div class="project-card" data-category="design">
+                <img src="../imgs/project_01.jpeg" alt="Project 5">
+                <h3>Project 5</h3>
+                <p>This is my Web Project.</p>
+                <a href="../project_pages/project01.html">View Project</a>
+            </div>
+
+            <div class="project-card" data-category="resume">
+                <img src="../imgs/project_01.jpeg" alt="Project 6">
+                <h3>Project 6</h3>
+                <p>This is my Web Project.</p>
+                <a href="../project_pages/project01.html">View Project</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="universe"></div>
+    <script src="../script.js"></script>
+</body>
+</html>
