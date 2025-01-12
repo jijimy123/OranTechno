@@ -61,9 +61,12 @@
 
         <div class="contact-form">
             <h3>Send us a Message</h3>
-            <form onsubmit="sendEmail(event)">
-                <input type="text" name="from_name" placeholder="Your Name" required>
-                <input type="email" name="reply_to" placeholder="Your Email" required>
+            <form
+                action="https://formspree.io/f/xjkklkrz"
+                method="POST"
+            >
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
                 <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
                 <button type="submit">Send</button>
             </form>            
@@ -103,22 +106,5 @@
 </body>
 
 <script src="../script.js"></script>
-<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script type="text/javascript">
-    (function() {
-        emailjs.init("AfL01j4S3OveliH36"); // 替换成你的 User ID
-    })();
-
-    function sendEmail(event) {
-        event.preventDefault();
-
-        emailjs.sendForm('service_3x8i6fo', 'template_5iwxihs', event.target)
-            .then(function() {
-                alert('Message sent successfully!');
-            }, function(error) {
-                alert('Failed to send message. Please try again.');
-            });
-    }
-</script>
 
 </html>
