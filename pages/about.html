@@ -29,26 +29,26 @@
         <!-- Navigator -->
         <nav class="nav">
             <div class="divider"></div>
-            <a href="../index.html" data-i18n="navHome">Home</a>
+            <a href="../index.html" data-i18n="navHome" id="first-A">Home</a>
             <a href="../pages/about.html" data-i18n="navAbout">About</a>
             <a href="../pages/projects.html" data-i18n="navProjects">Projects</a>
             <a href="../pages/contact.html" data-i18n="navContact">Contact</a>
+
+            <!-- Language Selector -->
+            <div class="language-selector">
+                <select id="language-select" onchange="changeLanguage()">
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                    <option value="zh">中文</option>
+                </select>
+            </div>
         </nav>
+
         <label for="check">
             <i class='bx bx-menu menu'></i>
             <i class='bx bx-x close-menu'></i>
         </label>
     </header>
-
-    <!-- Language Selector -->
-    <div class="language-selector">
-        <select id="language-select" onchange="changeLanguage()">
-            <option value="en">English</option>
-            <option value="fr">Français</option>
-            <option value="zh">中文</option>
-        </select>
-    </div>
-
     <!-- <div id="about">
         <h2 class="title" data-i18n="titleAbout">ABOUT US</h2>
     </div> -->
