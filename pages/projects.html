@@ -4,24 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
-    <title>OranTech</title>
+    <title>OranTechno</title>
+    <!-- Import Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Import Icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
     <header>
+        <!-- Input for check Menu Burger -->
         <input type="checkbox" name="check" id="check">
-        <!-- <a href="#" class="logo" onclick="PageHome()">
-            <img src="../imgs/logo.png" alt="logo">
-        </a> -->
         <h2>OranTechno</h2>
+
+        <!-- Navigator -->
         <nav class="nav">
             <div class="divider"></div>
             <a href="../index.html" data-i18n="navHome" id="first-A">Home</a>
-            <a href="../pages/about.html" data-i18n="navAbout">About</a>
             <a href="../pages/projects.html" data-i18n="navProjects">Projects</a>
+            <a href="../pages/price.html" data-i18n="navPrice">Price List</a>
             <a href="../pages/contact.html" data-i18n="navContact">Contact</a>
 
             <!-- Language Selector -->
@@ -40,60 +43,189 @@
         </label>
     </header>
 
-    
-
     <!-- Version 3 -->
     <div class="filter-buttons">
-        <button onclick="filterProjects('all')">All</button>
-        <button onclick="filterProjects('web')">Web</button>
-        <button onclick="filterProjects('resume')">Resume</button>
-        <button onclick="filterProjects('design')">Design</button>
+        <button onclick="filterProjects('all')" data-i18n="buttonAll">All</button>
+        <button onclick="filterProjects('web')" data-i18n="buttonWeb">Web</button>
+        <button onclick="filterProjects('resume')" data-i18n="buttonResume">Resume</button>
+        <button onclick="filterProjects('design')" data-i18n="buttonDesign">Design</button>
     </div>
 
     <div id="projects">
-        <!-- <h2 class="title" data-i18n="titleProjects">PROJECTS</h2> -->
-
         <div class="grid-container">
             <div class="project-card" data-category="web">
                 <img src="../imgs/tim2020.png" alt="Project 1">
                 <h3>TIM 2020</h3>
-                <p>This is my Web Project.</p>
-                <a href="https://tim.cmaisonneuve.qc.ca/" target="_blank">View Project</a>
-            </div>
-
-            <div class="project-card" data-category="resume">
-                <img src="../imgs/heyyangyang.png" alt="Project 2">
-                <h3>Hey Yang Yang</h3>
-                <p>This is my App Project.</p>
-                <a href="https://heyyangyang.ca/" target="_blank">View Project</a>
-            </div>
-
-            <div class="project-card" data-category="design">
-                <img src="../imgs/blr.png" alt="Project 3">
-                <h3>BlueLight Roofing Solutions</h3>
-                <p>This is my Design Project.</p>
-                <a href="https://bluelightroofing.com/" target="_blank">View Project</a>
+                <p data-i18n="projectDescriptionWeb"></p>
+                <a href="https://tim.cmaisonneuve.qc.ca/" target="_blank" data-i18n="viewProject"></a>
             </div>
 
             <div class="project-card" data-category="web">
-                <img src="../imgs/project_01.jpeg" alt="Project 4">
-                <h3>Project 4</h3>
-                <p>This is my Web Project.</p>
-                <a href="../project_pages/project01.html">View Project</a>
+                <img src="../imgs/heyyangyang.png" alt="Project 2">
+                <h3>Hey Yang Yang</h3>
+                <p data-i18n="projectDescriptionWeb"></p>
+                <a href="https://heyyangyang.ca/" target="_blank" data-i18n="viewProject"></a>
             </div>
 
-            <div class="project-card" data-category="design">
-                <img src="../imgs/project_01.jpeg" alt="Project 5">
-                <h3>Project 5</h3>
-                <p>This is my Web Project.</p>
-                <a href="../project_pages/project01.html">View Project</a>
+            <div class="project-card" data-category="web">
+                <img src="../imgs/blr.png" alt="Project 3">
+                <h3>BlueLight Roofing Solutions</h3>
+                <p data-i18n="projectDescriptionWeb"></p>
+                <a href="https://bluelightroofing.com/" target="_blank" data-i18n="viewProject"></a>
             </div>
 
             <div class="project-card" data-category="resume">
+                <img src="../imgs/project_01.jpeg" alt="Project 4">
+                <h3>Alice Personal Resume</h3>
+                <p data-i18n="projectDescriptionResume"></p>
+                <a href="../project_pages/project01.html" data-i18n="viewProject"></a>
+            </div>
+
+            <div class="project-card" data-category="resume">
+                <img src="../imgs/project_01.jpeg" alt="Project 5">
+                <h3>XXX Personal Resume</h3>
+                <p data-i18n="projectDescriptionResume"></p>
+                <a href="../project_pages/project01.html" data-i18n="viewProject"></a>
+            </div>
+
+            <div class="project-card" data-category="design">
                 <img src="../imgs/project_01.jpeg" alt="Project 6">
-                <h3>Project 6</h3>
-                <p>This is my Web Project.</p>
-                <a href="../project_pages/project01.html">View Project</a>
+                <h3>Design</h3>
+                <p data-i18n="projectDescriptionDesign"></p>
+                <a href="../project_pages/project01.html" data-i18n="viewProject"></a>
+            </div>
+
+            <div class="project-card" data-category="web">
+                <img src="../imgs/tim2020.png" alt="Project 1">
+                <h3>TIM 2020</h3>
+                <p data-i18n="projectDescriptionWeb"></p>
+                <a href="https://tim.cmaisonneuve.qc.ca/" target="_blank" data-i18n="viewProject"></a>
+            </div>
+
+            <div class="project-card" data-category="web">
+                <img src="../imgs/heyyangyang.png" alt="Project 2">
+                <h3>Hey Yang Yang</h3>
+                <p data-i18n="projectDescriptionWeb"></p>
+                <a href="https://heyyangyang.ca/" target="_blank" data-i18n="viewProject"></a>
+            </div>
+
+            <div class="project-card" data-category="web">
+                <img src="../imgs/blr.png" alt="Project 3">
+                <h3>BlueLight Roofing Solutions</h3>
+                <p data-i18n="projectDescriptionWeb"></p>
+                <a href="https://bluelightroofing.com/" target="_blank" data-i18n="viewProject"></a>
+            </div>
+
+            <div class="project-card" data-category="resume">
+                <img src="../imgs/project_01.jpeg" alt="Project 4">
+                <h3>Alice Personal Resume</h3>
+                <p data-i18n="projectDescriptionResume"></p>
+                <a href="../project_pages/project01.html" data-i18n="viewProject"></a>
+            </div>
+
+            <div class="project-card" data-category="resume">
+                <img src="../imgs/project_01.jpeg" alt="Project 5">
+                <h3>XXX Personal Resume</h3>
+                <p data-i18n="projectDescriptionResume"></p>
+                <a href="../project_pages/project01.html" data-i18n="viewProject"></a>
+            </div>
+
+            <div class="project-card" data-category="design">
+                <img src="../imgs/project_01.jpeg" alt="Project 6">
+                <h3>Design</h3>
+                <p data-i18n="projectDescriptionDesign"></p>
+                <a href="../project_pages/project01.html" data-i18n="viewProject"></a>
+            </div>
+
+            <div class="project-card" data-category="web">
+                <img src="../imgs/tim2020.png" alt="Project 1">
+                <h3>TIM 2020</h3>
+                <p data-i18n="projectDescriptionWeb"></p>
+                <a href="https://tim.cmaisonneuve.qc.ca/" target="_blank" data-i18n="viewProject"></a>
+            </div>
+
+            <div class="project-card" data-category="web">
+                <img src="../imgs/heyyangyang.png" alt="Project 2">
+                <h3>Hey Yang Yang</h3>
+                <p data-i18n="projectDescriptionWeb"></p>
+                <a href="https://heyyangyang.ca/" target="_blank" data-i18n="viewProject"></a>
+            </div>
+
+            <div class="project-card" data-category="web">
+                <img src="../imgs/blr.png" alt="Project 3">
+                <h3>BlueLight Roofing Solutions</h3>
+                <p data-i18n="projectDescriptionWeb"></p>
+                <a href="https://bluelightroofing.com/" target="_blank" data-i18n="viewProject"></a>
+            </div>
+
+            <div class="project-card" data-category="resume">
+                <img src="../imgs/project_01.jpeg" alt="Project 4">
+                <h3>Alice Personal Resume</h3>
+                <p data-i18n="projectDescriptionResume"></p>
+                <a href="../project_pages/project01.html" data-i18n="viewProject"></a>
+            </div>
+
+            <div class="project-card" data-category="resume">
+                <img src="../imgs/project_01.jpeg" alt="Project 5">
+                <h3>XXX Personal Resume</h3>
+                <p data-i18n="projectDescriptionResume"></p>
+                <a href="../project_pages/project01.html" data-i18n="viewProject"></a>
+            </div>
+
+            <div class="project-card" data-category="design">
+                <img src="../imgs/project_01.jpeg" alt="Project 6">
+                <h3>Design</h3>
+                <p data-i18n="projectDescriptionDesign"></p>
+                <a href="../project_pages/project01.html" data-i18n="viewProject"></a>
+            </div>
+
+            <div class="project-card" data-category="design">
+                <img src="../imgs/project_01.jpeg" alt="Project 6">
+                <h3>Design</h3>
+                <p data-i18n="projectDescriptionDesign"></p>
+                <a href="../project_pages/project01.html" data-i18n="viewProject"></a>
+            </div>
+
+            <div class="project-card" data-category="web">
+                <img src="../imgs/tim2020.png" alt="Project 1">
+                <h3>TIM 2020</h3>
+                <p data-i18n="projectDescriptionWeb"></p>
+                <a href="https://tim.cmaisonneuve.qc.ca/" target="_blank" data-i18n="viewProject"></a>
+            </div>
+
+            <div class="project-card" data-category="web">
+                <img src="../imgs/heyyangyang.png" alt="Project 2">
+                <h3>Hey Yang Yang</h3>
+                <p data-i18n="projectDescriptionWeb"></p>
+                <a href="https://heyyangyang.ca/" target="_blank" data-i18n="viewProject"></a>
+            </div>
+
+            <div class="project-card" data-category="web">
+                <img src="../imgs/blr.png" alt="Project 3">
+                <h3>BlueLight Roofing Solutions</h3>
+                <p data-i18n="projectDescriptionWeb"></p>
+                <a href="https://bluelightroofing.com/" target="_blank" data-i18n="viewProject"></a>
+            </div>
+
+            <div class="project-card" data-category="resume">
+                <img src="../imgs/project_01.jpeg" alt="Project 4">
+                <h3>Alice Personal Resume</h3>
+                <p data-i18n="projectDescriptionResume"></p>
+                <a href="../project_pages/project01.html" data-i18n="viewProject"></a>
+            </div>
+
+            <div class="project-card" data-category="resume">
+                <img src="../imgs/project_01.jpeg" alt="Project 5">
+                <h3>XXX Personal Resume</h3>
+                <p data-i18n="projectDescriptionResume"></p>
+                <a href="../project_pages/project01.html" data-i18n="viewProject"></a>
+            </div>
+
+            <div class="project-card" data-category="design">
+                <img src="../imgs/project_01.jpeg" alt="Project 6">
+                <h3>Design</h3>
+                <p data-i18n="projectDescriptionDesign"></p>
+                <a href="../project_pages/project01.html" data-i18n="viewProject"></a>
             </div>
         </div>
     </div>

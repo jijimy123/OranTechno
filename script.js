@@ -1,85 +1,104 @@
-// Variables
-// var layerCount = 3;
-// var starCount = 400;
-// var maxTime = 30;
-// var universe = document.getElementById("universe");
-// var w = window;
-// var d = document;
-// var e = d.documentElement;
-// var g = d.getElementsByTagName("body")[0];
-// var width = w.innerWidth || e.clientWidth || g.clientWidth;
-// var height = w.innerHeight || e.clientHeight || g.clientHeight;
-
-// for (var i = 0; i < starCount; i++) {
-//     var ypos = Math.round(Math.random() * height);
-//     var star = document.createElement("div");
-//     var speed = 3000 * (Math.random() * maxTime + 1);
-//     star.setAttribute("class", "star" + (3 - Math.floor(speed / 1000 / 8)));
-//     star.style.backgroundColor = "white";
-
-//     universe.appendChild(star);
-//     star.animate(
-//         [
-//             {
-//                 transform: "translate3d(" + width + "px, " + ypos + "px, 0)"
-//             },
-//             {
-//                 transform: "translate3d(-" + Math.random() * 256 + "px, " + ypos + "px, 0)"
-//             }
-//         ],
-//         {
-//             delay: Math.random() * -speed, // speed can be both: positive (more star) or negative (less star).
-//             duration: speed,
-//             iterations: Infinity
-//         }
-//     );
-// }
-
-var elem = document.querySelector(".pulse");
-if (elem) {
-    var animation = elem.animate(
-        {
-            opacity: [0.5, 1],
-            transform: ["scale(0.5)", "scale(1)"]
-        },
-        {
-            direction: "alternate",
-            duration: 500,
-            iterations: Infinity
-        }
-    );
-}
-
 // Changer la langue
 const translations = {
     en: {
         navHome: "Home",
-        navAbout: "About",
+        navPrice: "Price List",
         navProjects: "Projects",
         navContact: "Contact",
         // titleAbout: "About us",
         // titleProjects: "Projects",
         // titleContact: "Contact us"
+        slogan: "We Design, You Shine.",
+        homeContent: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae facere alias, voluptates ratione quos nulla ad saepe suscipit quod molestiae enim pariatur mollitia non odio et. Odit quos nostrum sapiente?",
+        aboutTitle: "Explore OranTechno",
+        aboutContent: `About Us:
+        Welcome to our professional resume website building team! We are a dynamic group of web designers, developers, and content strategists dedicated to crafting stunning and impactful online resumes that elevate personal branding.
+
+        Our Mission:
+        To empower individuals by creating personalized, professional websites that showcase their skills, experience, and achievements in the most engaging way.
+
+        Our Expertise:
+        - Modern Design: We utilize sleek, responsive designs with vibrant gradients and smooth navigation to make every resume stand out.
+        - User-Friendly Interface: Easy-to-navigate layouts ensure that your accomplishments are presented clearly and professionally.
+        - Customization: Tailored solutions to reflect your unique professional identity, integrating custom graphics, interactive elements, and professional content.
+        - Technical Excellence: Leveraging the latest web technologies for fast, secure, and mobile-optimized performance.
+
+        Why Choose Us:
+        - Creative designs inspired by modern trends.
+        - Seamless user experience across devices.
+        - Quick turnaround and dedicated support.
+        Let us help you create a digital resume that leaves a lasting impression!`,
+        buttonAll: "All",
+        buttonWeb: "Web",
+        buttonResume: "Resume",
+        buttonDesign: "Design",
+        projectDescriptionWeb: "This is a web project",
+        projectDescriptionResume: "This is a resume project",
+        projectDescriptionDesign: "This is a design project",
+        viewProject: "view Project",
+        contactTitle: "Get in Touch",
+        contactContent: "Have questions or need support? Feel free to reach out to us through our contact form or email. We're here to help you make the most of our innovative solutions.",
+        contactBoxTitle: "Send us a Message",
+        placeholderName: "Your Name",
+        placeholderGmail: "Your Gmail",
+        placeholderMessage: "Your Message",
+        buttonSend: "Send"
     },
     fr: {
         navHome: "Accueil",
-        navAbout: "À propos",
+        navPrice: "Liste de prix",
         navProjects: "Projets",
         navContact: "Contact",
         // titleAbout: "À propos",
         // titleProjects: "Projets",
         // titleContact: "Contact"
-    
+        slogan: "",
+        homeContent: "",
+        aboutTitle: "",
+        aboutContent: ``,
+        buttonAll: "",
+        buttonWeb: "",
+        buttonResume: "",
+        buttonDesign: "",
+        projectDescriptionWeb: "",
+        projectDescriptionResume: "",
+        projectDescriptionDesign: "",
+        viewProject: "",
+        contactTitle: "",
+        contactContent: "",
+        contactBoxTitle: "",
+        placeholderName: "",
+        placeholderGmail: "",
+        placeholderMessage: "",
+        buttonSend: ""
     },
     zh: {
         navHome: "主页",
-        navAbout: "关于我们",
+        navPrice: "价格表",
         navProjects: "项目",
         navContact: "联系我们",
         // titleAbout: "关于我们",
         // titleProjects: "项目",
         // titleContact: "关于我们"
-        
+        slogan: "",
+        homeContent: "",
+        aboutTitle: "",
+        aboutContent: ``,
+        buttonAll: "",
+        buttonWeb: "",
+        buttonResume: "",
+        buttonDesign: "",
+        projectDescriptionWeb: "",
+        projectDescriptionResume: "",
+        projectDescriptionDesign: "",
+        viewProject: "",
+        contactTitle: "",
+        contactContent: "",
+        contactBoxTitle: "",
+        placeholderName: "",
+        placeholderGmail: "",
+        placeholderMessage: "",
+        buttonSend: ""
     }
 };
 
@@ -92,16 +111,17 @@ function changeLanguage() {
 
 // 应用语言设置
 function applyLanguage(lang) {
-    // 遍历所有带 data-i18n 的元素
-    const elements = document.querySelectorAll('[data-i18n]');
-    elements.forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        if (translations[lang][key]) {
-            element.innerText = translations[lang][key];
+    const selectedLang = document.getElementById("language-select").value;
+    document.querySelectorAll("[data-i18n]").forEach(element => {
+        const key = element.getAttribute("data-i18n");
+        
+        if (element.tagName.toLowerCase() === "input" || element.tagName.toLowerCase() === "textarea") {
+            element.placeholder = translations[selectedLang][key];
+        } else {
+            element.innerText = translations[selectedLang][key];
         }
     });
 }
-
 
 // 页面加载时自动应用语言
 document.addEventListener('DOMContentLoaded', () => {
@@ -109,7 +129,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('language-select').value = savedLang;
     applyLanguage(savedLang);
 });
-
 
 // 分类筛选功能
 function filterProjects(category) {
@@ -122,3 +141,34 @@ function filterProjects(category) {
         }
     });
 }
+
+// 鼠标拖动效果
+const slider = document.querySelector('.grid-container');
+let isDragging = false;
+let startX;
+let scrollLeft;
+
+slider.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    slider.classList.add('active');
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener('mouseleave', () => {
+    isDragging = false;
+    slider.classList.remove('active');
+});
+
+slider.addEventListener('mouseup', () => {
+    isDragging = false;
+    slider.classList.remove('active');
+});
+
+slider.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 1.5;  // 调整滑动速度
+    slider.scrollLeft = scrollLeft - walk;
+});

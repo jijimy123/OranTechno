@@ -14,24 +14,17 @@
 </head>
 
 <body>
-    <!-- Header -->
     <header>
         <!-- Input for check Menu Burger -->
         <input type="checkbox" name="check" id="check">
-            <!-- LOGO -->
-            <!-- <div id="home">
-                <h2>OranTech</h2>
-            </div> -->
-            <h2>OranTechno</h2>
-            <!-- Name -->
-            <!-- <p class="name">Chen Jimmy</p> -->
+        <h2>OranTechno</h2>
         
         <!-- Navigator -->
         <nav class="nav">
             <div class="divider"></div>
             <a href="index.html" data-i18n="navHome" id="first-A">Home</a>
-            <a href="./pages/about.html" data-i18n="navAbout">About</a>
             <a href="./pages/projects.html" data-i18n="navProjects">Projects</a>
+            <a href="./pages/price.html" data-i18n="navPrice">Price List</a>
             <a href="./pages/contact.html" data-i18n="navContact">Contact</a>
 
             <!-- Language Selector -->
@@ -43,20 +36,91 @@
                 </select>
             </div>
         </nav>
-        
+
         <label for="check">
             <i class='bx bx-menu menu'></i>
             <i class='bx bx-x close-menu'></i>
         </label>  
     </header>
 
-    <div class="content-box content-home">
-        <!-- <h3>Welcome to our page</h3> -->
-        <p class="slogan">We Design, You Shine. </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae facere alias, voluptates ratione quos nulla ad saepe suscipit quod molestiae enim pariatur mollitia non odio et. Odit quos nostrum sapiente?
+    <div class="content-home">
+        <p class="slogan" data-i18n="slogan"></p>
+        <p data-i18n="homeContent"></p>
+    </div>
+
+    <div class="content-about">
+        <h3 data-i18n="aboutTitle"></h3>
+        <p class="text-about" data-i18n="aboutContent"> 
+            About Us: 
+            <br>
+            Welcome to our professional resume website building team! We are a dynamic group of web designers, developers, and content strategists dedicated to crafting stunning and impactful online resumes that elevate personal branding.
+            <br>
+            <br>
+            Our Mission:
+            <br>
+            To empower individuals by creating personalized, professional websites that showcase their skills, experience, and achievements in the most engaging way.
+            <br>
+            <br>
+            Our Expertise:
+            <br>
+            Modern Design: We utilize sleek, responsive designs with vibrant gradients and smooth navigation to make every resume stand out.
+            <br>
+            User-Friendly Interface: Easy-to-navigate layouts ensure that your accomplishments are presented clearly and professionally.
+            <br>
+            Customization: Tailored solutions to reflect your unique professional identity, integrating custom graphics, interactive elements, and professional content.
+            <br>
+            Technical Excellence: Leveraging the latest web technologies for fast, secure, and mobile-optimized performance.
+            <br>
+            <br>
+            Why Choose Us:
+            <br>
+            Creative designs inspired by modern trends.
+            Seamless user experience across devices.
+            Quick turnaround and dedicated support.
+            Let us help you create a digital resume that leaves a lasting impression!
         </p>
     </div>
+
+    <div class="content-process">
+        <h2>Process</h2>
+        <div class="Process">
+            <div class="oneProcess">
+                <img src="./imgs/logos/number_1.png" class="tailleImg" alt="">
+                <h3>Free Estimate</h3>
+                <p>The first step in our process is to schedule a free estimate. During this appointment, 
+                   one of our experts will visit your property to assess your needs and discuss your vision for your roofing.</p>
+            </div>
+    
+            <div class="oneProcess">
+                <img src="./imgs/logos/number_2.png" class="tailleImg" alt="">
+                <h3>Quote</h3>
+                <p>Based on the information gathered during the free estimate, we will provide you with
+                   a detailed quote for the services you require. This quote will outline the scope of work, 
+                   materials, and estimated timeline for your project.</p>
+            </div>
+    
+            <div class="oneProcess">
+                <img src="./imgs/logos/number_3.png" class="tailleImg" alt="">
+                <h3>Sign & Agreement</h3>
+                <p>Once you have reviewed and accepted the quote, you will be asked to sign a contract 
+                   to formalize the agreement between you and our company.</p>
+            </div>
+    
+            <div class="oneProcess">
+                <img src="./imgs/logos/number_4.png" class="tailleImg" alt="">
+                <h3>Construction</h3>
+                <p>Our team will begin the construction process, working closely with you to ensure 
+                   that the project is completed according to your specifications and timeline.</p>
+            </div>
+    
+            <div class="oneProcess">
+                <img src="./imgs/logos/number_5.png" class="tailleImg" alt="">
+                <h3>Pre-Delivery Inspection</h3>
+                <p>Before completing the project, we will conduct a pre-delivery inspection to ensure 
+                   that the work meets our high standards and your expectations. If any final adjustments 
+                   are needed, we will make them at this time.</p>
+            </div>
+        </div>
 
     <!-- Star Background -->
     <div id="universe"></div>
