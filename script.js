@@ -4,37 +4,54 @@ const translations = {
         navHome: "Home",
         navPrice: "Price List",
         navProjects: "Projects",
+        navTeam: "Team",
         navContact: "Contact",
-        // titleAbout: "About us",
-        // titleProjects: "Projects",
-        // titleContact: "Contact us"
         slogan: "We Design, You Shine.",
         homeContent: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae facere alias, voluptates ratione quos nulla ad saepe suscipit quod molestiae enim pariatur mollitia non odio et. Odit quos nostrum sapiente?",
         aboutTitle: "Explore OranTechno",
-        aboutContent: `About Us:
-        Welcome to our professional resume website building team! We are a dynamic group of web designers, developers, and content strategists dedicated to crafting stunning and impactful online resumes that elevate personal branding.
+        aboutContent: ``,
+        processTitle: "Process",
+        processStep_1: "Planning & Analysis",
+        processStep_2: "Design",
+        processStep_3: "Development",
+        processStep_4: "Testing & Optimization",
+        processStep_5: "Launch & Maintenance",
+        contentProcess_1: `- Understand customer needs, goals and audiences
+        
+                    - Determine functionality and page structure (website architecture diagram)
 
-        Our Mission:
-        To empower individuals by creating personalized, professional websites that showcase their skills, experience, and achievements in the most engaging way.
+                    - Develop project timeline and technical plan`,
+        contentProcess_2: `- Draw website wireframes and prototypes (Wireframe/Prototype)
 
-        Our Expertise:
-        - Modern Design: We utilize sleek, responsive designs with vibrant gradients and smooth navigation to make every resume stand out.
-        - User-Friendly Interface: Easy-to-navigate layouts ensure that your accomplishments are presented clearly and professionally.
-        - Customization: Tailored solutions to reflect your unique professional identity, integrating custom graphics, interactive elements, and professional content.
-        - Technical Excellence: Leveraging the latest web technologies for fast, secure, and mobile-optimized performance.
+                    - UI/UX design (color, font, layout, interactive effects)
 
-        Why Choose Us:
-        - Creative designs inspired by modern trends.
-        - Seamless user experience across devices.
-        - Quick turnaround and dedicated support.
-        Let us help you create a digital resume that leaves a lasting impression!`,
+                    - Responsive design (considering both PC and mobile terminals)`,
+        contentProcess_3: `- Front-end development: HTML, CSS, JavaScript to implement pages and interactions
+
+                    - Back-end development: server setup, database, core function implementation
+
+                    - Content Integration
+
+                    - Multilingual content (if needed)`,
+        contentProcess_4: `- Functional testing (forms, buttons, payments, etc.)
+
+                    - Cross-browser and device compatibility testing
+
+                    - Image compression and formatting (for faster loading)`,
+        contentProcess_5: `- Website deployment (domain binding, server online)
+
+                    - Install SSL certificate (HTTPS)
+
+                    - Bug fixes and function upgrades
+
+                    - Regular updates and security maintenance (if needed)`,
         buttonAll: "All",
         buttonWeb: "Web",
         buttonResume: "Resume",
         buttonDesign: "Design",
-        projectDescriptionWeb: "This is a web project",
-        projectDescriptionResume: "This is a resume project",
-        projectDescriptionDesign: "This is a design project",
+        projectDescriptionWeb: "A web project",
+        projectDescriptionResume: "A resume project",
+        projectDescriptionDesign: "A design project",
         viewProject: "view Project",
         contactTitle: "Get in Touch",
         contactContent: "Have questions or need support? Feel free to reach out to us through our contact form or email. We're here to help you make the most of our innovative solutions.",
@@ -49,9 +66,6 @@ const translations = {
         navPrice: "Liste de prix",
         navProjects: "Projets",
         navContact: "Contact",
-        // titleAbout: "À propos",
-        // titleProjects: "Projets",
-        // titleContact: "Contact"
         slogan: "",
         homeContent: "",
         aboutTitle: "",
@@ -77,9 +91,6 @@ const translations = {
         navPrice: "价格表",
         navProjects: "项目",
         navContact: "联系我们",
-        // titleAbout: "关于我们",
-        // titleProjects: "项目",
-        // titleContact: "关于我们"
         slogan: "",
         homeContent: "",
         aboutTitle: "",
@@ -123,14 +134,29 @@ function applyLanguage(lang) {
     });
 }
 
-// 页面加载时自动应用语言
+// page load apply the language
 document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('selectedLanguage') || 'en';
     document.getElementById('language-select').value = savedLang;
     applyLanguage(savedLang);
 });
 
-// 分类筛选功能
+
+// Animation of Process section
+window.addEventListener('scroll', function () {
+    const processSteps = document.querySelectorAll('.oneProcess');
+    const triggerBottom = window.innerHeight * 0.85; // 触发点
+
+    processSteps.forEach(step => {
+        const stepTop = step.getBoundingClientRect().top;
+
+        if (stepTop < triggerBottom) {
+            step.classList.add('animate'); // 添加动画类
+        }
+    });
+});
+
+// filter of projects category
 function filterProjects(category) {
     const projects = document.querySelectorAll('.project-card');
     projects.forEach(project => {
@@ -142,7 +168,7 @@ function filterProjects(category) {
     });
 }
 
-// 鼠标拖动效果
+// mouse move projects animation
 const slider = document.querySelector('.grid-container');
 let isDragging = false;
 let startX;
@@ -169,6 +195,6 @@ slider.addEventListener('mousemove', (e) => {
     if (!isDragging) return;
     e.preventDefault();
     const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 1.5;  // 调整滑动速度
+    const walk = (x - startX) * 1.5;
     slider.scrollLeft = scrollLeft - walk;
 });

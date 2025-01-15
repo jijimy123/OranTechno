@@ -5,22 +5,20 @@
     box-sizing: border-box;
 }
 
-body{
-    background: #ffa17f;
-    background: -webkit-linear-gradient(to right, #ffa17f, #00223e);
-    background: linear-gradient(to right, #ffa17f, #00223e);    
-    overflow: hidden;
-    overflow-y: auto;
+@font-face {
+    font-family: 'Stormfaze';
+    src: url('./fonts/Stormfaze.otf') format('opentype');
 }
 
-.title {
-    color: white;
-    position: absolute;
-    top: 120px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-shadow: 10px 0 10px rgba(0, 0, 0, 0.5);
-    font-size: 40px;
+body{
+    background: #ff8558;
+    background: -webkit-linear-gradient(to right, #ff8558, #00223e);
+    background: linear-gradient(to right, #ff8558, #00223e);    
+    overflow: hidden;
+    overflow-y: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 /**************** Navigator CSS *************** */
@@ -28,8 +26,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background: -webkit-linear-gradient(to right, #ffa17f, #00223e);
-    background: linear-gradient(to right, #ffa17f, #00223e);  
+    background: linear-gradient(to right, #ff8558, #00223e);  
     backdrop-filter: blur(10px);
     height: 80px;
     position: fixed;
@@ -39,8 +36,15 @@ header {
     z-index: 10;
 }
 
+h1 {
+    font-family: 'Stormfaze', sans-serif;
+    font-weight: 200;
+    font-size: 3rem;
+    color: rgb(255, 197, 110);
+}
+
 .nav a {
-    color: white;
+    color: rgb(255, 197, 110);
     text-decoration: none;
     font-weight: 600;
     font-size: 18px;
@@ -52,6 +56,7 @@ header {
 
 .nav a:hover {
     background: rgba(0, 0, 0, 0.2);
+    color: rgb(255, 123, 0);
 }
 
 #check {
@@ -90,7 +95,7 @@ header label {
 .content-home p.slogan {
     font-weight: 800;
     font-size: 4rem;
-    color: #ffffff;
+    color: whitesmoke;
     text-shadow: 
         2px 2px 0px #000,  
         4px 4px 0px #333,  
@@ -99,18 +104,11 @@ header label {
 
 .content-home p {
     font-weight: 300;
-    color: #ffffff;
+    color: whitesmoke;
     text-shadow: 
         1px 1px 0px #000,  
         2px 2px 0px #333,  
         3px 3px 4px rgba(0, 0, 0, 0.5);
-}
-
-.content-about {
-    height: 100%;
-    padding: 2% 11% 2% 15%; /*top right bottom left */
-    font-family: 'Poppins', sans-serif;
-    text-align: left;
 }
 
 .content-process {
@@ -120,14 +118,14 @@ header label {
     align-items: center;
 }
 
-.content-about h3, .content-contact h3 {
-    color: #ffffff;
+.content-about h3, .content-contact h2, .content-team h2 {
+    color: whitesmoke;
     font-size: 35px;
     padding-bottom: 15px;
 }
 
-.content-home p, .content-about p, .content-contact p {
-    color: #ffffff;
+.content-home p, .content-about p, .content-contact p, .content-team p {
+    color: whitesmoke;
     text-align: justify;
     line-height: 1.8;
 }
@@ -137,11 +135,39 @@ header label {
     top: 20px;
     right: 20px;
 }
+
 .language-selector select {
-    padding: 5px 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    appearance: none;
+    background-color: #fff;
+    color: #333;
+    padding: 10px 40px 10px 15px;
+    border: 2px solid rgb(255, 197, 110);
+    border-radius: 30px;
+    font-size: 16px;
     font-family: 'Poppins', sans-serif;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.language-selector select:hover {
+    background-color: whitesmoke;
+    color: rgb(255, 123, 0);
+}
+
+.language-selector::after {
+    content: '▼';
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: rgb(255, 197, 110);
+    font-size: 14px;
+    pointer-events: none;
+}
+
+.language-selector select:hover + ::after {
+    color: #fff;
 }
 
 .content-process h2 {
@@ -155,6 +181,7 @@ header label {
 }
 
 .Process {
+    width: 80%;
     display: flex;
     padding-bottom: 100px;
     display: grid;
@@ -164,19 +191,44 @@ header label {
 }
 
 .oneProcess {
+    color: whitesmoke;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     margin-left: 1%;
     margin-right: 1%;
-    border-right: 1px solid whitesmoke;
+    border-right: 2px solid black;
     padding-right: 1%;
-    background-color: #fff;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.oneProcess.animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.oneProcess:nth-child(1) {
+    transition-delay: 0.2s;
+}
+
+.oneProcess:nth-child(2) {
+    transition-delay: 0.4s;
+}
+
+.oneProcess:nth-child(3) {
+    transition-delay: 0.6s;
+}
+
+.oneProcess:nth-child(4) {
+    transition-delay: 0.8s;
+}
+
+.oneProcess:nth-child(5) {
+    transition-delay: 1s;
 }
 
 .oneProcess:last-child {
@@ -185,14 +237,89 @@ header label {
 }
 
 .oneProcess h3{
+    font-size: 30px;
     margin-top: 8%;
     margin-bottom:8%;
 }
 
+.oneProcess p {
+    text-align: left;
+}
+
+.oneProcess .imgSize {
+    width: 75px;
+    height: 75px;
+}
+
+.oneProcess .logoSize {
+    width: 95px;
+    height: 85px;
+    padding-top: 5px;
+}
+
+.footer {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    position: relative;
+    bottom: 0;
+    flex-direction: column;
+    align-items: center;
+    background-color: #000;
+    color: whitesmoke;
+    border-top: 2px solid black;
+    margin-top: 20px;
+}
+
+.f-price, .f-team, .f-contact {
+    position: fixed;
+    bottom: 0;
+}
+
+.footer p {
+    margin: 15px auto 5px auto;
+}
+
+.footer .footer-mail {
+    font-size: 25px;
+}
+
 /****************  About CSS *************** */
 .content-about {
+    height: 100%;
     margin: 30px auto 100px auto;
+    padding: 0 15% 2% 15%; /*top right bottom left */
     text-align: left;
+    font-family: 'Poppins', sans-serif;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 两列布局 */
+    gap: 20px; /* 元素间距 */
+}
+
+/* 图片样式 */
+.about-grid .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 文本样式 */
+.about-grid .text, 
+.about-grid .text-full {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* 独占一行的文字 */
+.about-grid .text-full {
+    grid-column: span 2; /* 跨两列 */
+    padding: 20px;
+    border-radius: 10px;
 }
 
 /****************  Projects CSS *************** */
@@ -208,8 +335,8 @@ header label {
     margin: 5px;
     border: none;
     border-radius: 5px;
-    background-color: #007BFF;
-    color: #fff;
+    background-color: rgb(255, 197, 110);
+    color: whitesmoke;
     cursor: pointer;
     transition: background-color 0.3s;
     width: 100px;
@@ -218,7 +345,7 @@ header label {
 }
 
 .filter-buttons button:hover {
-    background-color: #0056b3;
+    background-color: rgb(255, 123, 0);
     cursor: pointer;
 }
 
@@ -239,7 +366,7 @@ header label {
 .project-card {
     width: 250px;
     height: 320px;
-    background-color: #fff;
+    background-color: whitesmoke;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -295,20 +422,21 @@ header label {
 .content-price {
     text-align: left;
     height: 100%;
-    margin: 120px auto 20px auto;
+    margin: 120px 0 380px 0;
     padding-left: 35%;
     padding-right: 35%;
     color: whitesmoke;
+    flex: 1;
 }
 
-.content-price h1 {
+.content-price h2 {
     font-size: 48px;
     margin-bottom: 0;
 }
 
-.content-price h2 {
+.content-price h3 {
     font-style: italic;
-    font-size: 28px;
+    font-size: 36px;
     margin-top: 0;
     margin-bottom: 20px;
 }
@@ -332,6 +460,62 @@ header label {
     border-top: 1px solid #ccc;
     margin: 10px 0;
 }
+
+/****************  Price List CSS *************** */
+.content-team {
+    height: 100%;
+    margin: 120px auto 0px auto;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+.content-team p {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.teamContent{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0px auto 8% auto;
+}
+
+.memberTeam {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.memberTeam:hover {
+    transform: translateY(-10px);
+}
+
+.memberTeam img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.memberTeam .memberInfo {
+    padding: 20px;
+}
+
+.memberTeam .memberInfo h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.memberTeam .memberInfo p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: black;
+}
+
 /****************  Contact CSS *************** */
 .content-contact {
     height: 100%;
@@ -343,9 +527,9 @@ header label {
 }
 
 .contact-form {
-    margin: 50px auto 50px auto;
+    margin: 45px auto 45px auto;
     width: 50%;
-    background-color: #fff;
+    background-color: whitesmoke;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -368,7 +552,7 @@ header label {
     width: 100%;
     padding: 12px;
     background-color: #007BFF;
-    color: white;
+    color: whitesmoke;
     border: none;
     border-radius: 5px;
     font-size: 16px;
@@ -411,7 +595,7 @@ header label {
 
 /****************  responsive CSS *************** */
 @media (max-width: 600px) {
-    .content-home h3, .content-about h3, .content-contact h3 {
+    .content-home h3, .content-about h3, .content-contact h2, .content-team h2 {
         font-size: 31px;
         padding-bottom: 15px;
     }
@@ -425,15 +609,6 @@ header label {
     .content-home p.slogan {
         font-size: 38px;
         line-height: 1.5;
-    }
-
-    .content-about {
-        padding-left: 8%;
-        padding-right: 0px;
-    }
-
-    .content-about .text-about {
-        padding-right: 8%;
     }
 
     .content-contact {
@@ -477,14 +652,14 @@ header label {
     .menu {
         display: block;
         font-size: 45px;
-        color: white;
+        color: whitesmoke;
         cursor: pointer;
     }
 
     .close-menu {
         display: block;
         font-size: 45px;
-        color: white;
+        color: whitesmoke;
         cursor: pointer;
     }
 
@@ -516,6 +691,58 @@ header label {
 
     .language-selector {
         display: none;
+    }
+
+    .language-selector::after {
+        right: 60px;
+    }
+
+    .footer {
+        border-top: none;
+    }
+
+    .footer .footer-mail {
+        font-size: 20px;
+    }
+
+/* ABOUT SECTION */
+    .content-about {
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-grid .text-full {
+        grid-column: span 1;
+    }
+
+    .about-grid .image img, 
+    .about-grid .text {
+        margin-bottom: 15px;
+    }
+
+
+/* PROCESS SECTION */
+    .Process {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 0px;
+    }
+
+    .oneProcess {
+        width: 93%;
+        border-right: none;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        padding-bottom: 25px;
+        border-bottom: 2px solid black;
+    }
+
+    .content-process h2 {
+        margin-bottom: 0px;
     }
 
 /* PROJECTS PAGE */
@@ -564,38 +791,19 @@ header label {
         height: 40px;
     }
 
-/* PROCESS */
-    .Process {
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 0px;
-    }
-
-    .oneProcess {
-        width: 93%;
-        border-right: none;
-        margin-left: 10px;
-        margin-bottom: 10px;
-        padding-bottom: 25px;
-        border-bottom: 2px solid black;
-    }
-
-/* PROJECT TOP BUTTONS */
-
-
 /* PRICE */
     .content-price {
-        padding-left: 10%;
-        padding-right: 10%;
         text-align: left;
+        padding: 20px 20px 0px 20px;
+        margin-top: 16%;
     }
 
-    .content-price h1 {
+    .content-price h2 {
         font-size: 36px;
         margin-bottom: 5px;
     }
 
-    .content-price h2 {
+    .content-price h3 {
         font-size: 20px;
         margin-bottom: 15px;
     }
@@ -618,6 +826,50 @@ header label {
 
     .content-price .divider {
         margin: 10px auto;
+    }
+
+/* TEAM */
+    .content-team {
+        padding: 20px 20px 0px 20px;
+        margin-top: 16%;
+    }
+
+    .teamContent {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 10px;
+        margin-bottom: 25%;
+    }
+
+    .memberTeam {
+        width: 90%;
+        margin: 0 auto;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .memberTeam img {
+        width: 100%;
+        height: auto;
+        max-height: 250px;
+        object-fit: cover;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .memberTeam .memberInfo {
+        padding: 15px;
+        text-align: center;
+    }
+
+    .memberTeam .memberInfo h3 {
+        font-size: 18px;
+        color: #333;
+    }
+
+    .memberTeam .memberInfo p {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.6;
     }
 }
 
@@ -671,14 +923,14 @@ header label {
     .menu {
         display: block;
         font-size: 45px;
-        color: white;
+        color: whitesmoke;
         cursor: pointer;
     }
 
     .close-menu {
         display: block;
         font-size: 45px;
-        color: white;
+        color: whitesmoke;
         cursor: pointer;
     }
 
