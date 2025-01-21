@@ -7,44 +7,46 @@ const translations = {
         navTeam: "Team",
         navContact: "Contact",
         slogan: "We Design, You Shine.",
-        homeContent: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae facere alias, voluptates ratione quos nulla ad saepe suscipit quod molestiae enim pariatur mollitia non odio et. Odit quos nostrum sapiente?",
+        homeContent: `At <b>ORANTECHNO</b>, we are a dedicated team of website designers and developers, committed to crafting personalized, innovative websites tailored to your unique vision.`,
         aboutTitle: "Explore OranTechno",
         aboutContent: ``,
         processTitle: "Process",
         processStep_1: "Planning & Analysis",
-        processStep_2: "Design",
-        processStep_3: "Development",
-        processStep_4: "Testing & Optimization",
-        processStep_5: "Launch & Maintenance",
-        contentProcess_1: `- Understand customer needs, goals and audiences
-        
-                    - Determine functionality and page structure (website architecture diagram)
-
-                    - Develop project timeline and technical plan`,
-        contentProcess_2: `- Draw website wireframes and prototypes (Wireframe/Prototype)
-
-                    - UI/UX design (color, font, layout, interactive effects)
-
-                    - Responsive design (considering both PC and mobile terminals)`,
-        contentProcess_3: `- Front-end development: HTML, CSS, JavaScript to implement pages and interactions
-
-                    - Back-end development: server setup, database, core function implementation
-
-                    - Content Integration
-
-                    - Multilingual content (if needed)`,
-        contentProcess_4: `- Functional testing (forms, buttons, payments, etc.)
-
-                    - Cross-browser and device compatibility testing
-
-                    - Image compression and formatting (for faster loading)`,
-        contentProcess_5: `- Website deployment (domain binding, server online)
-
-                    - Install SSL certificate (HTTPS)
-
-                    - Bug fixes and function upgrades
-
-                    - Regular updates and security maintenance (if needed)`,
+        processStep_2: "Design & Development",
+        processStep_3: "Testing & Optimization",
+        processStep_4: "Launch & Maintenance",
+        contentProcess_1: `
+                    - Share your resume/business goals, target audience and any specific features you want for your website.
+                    <br>
+                    <br>
+                    - Provide any existing contents/ideas you have for the site's structure and design.
+                    <br>
+                    <br>
+                    - Provide all the necessary content (text, images, videos, etc.) for the website
+                    <br>
+                    <br>
+                    - Approve or provide feedback on the project plan as we move forward.`,
+        contentProcess_2: `
+                    - Review the prototypes we create, giving feedback on layout, design and functionality.
+                    <br>
+                    <br>
+                    - Select preferences for colors, fonts, and any other design elements to ensure they match your idea.`,
+        contentProcess_3: `
+                    - Confirm the responsiveness of the design, especially for mobile and tablet views.
+                    <br>
+                    <br>
+                    - Test the site from your end, especially any forms, buttons, or payment processes, and let us know if you encounter any issues.  
+                    <br>
+                    <br>
+                    - Provide any final content updates before going live.`,
+        contentProcess_4: `
+                    - Confirm the domain name and server setup for the final launch.
+                    <br>
+                    <br>
+                    - After launch, monitor your site for any issues, and communicate any bugs or additional changes you’d like made. 
+                    <br>
+                    <br>
+                    - Approve regular updates and security measures to keep your site up-to-date and secure. (extra charge may applied)`,
         buttonAll: "All",
         buttonWeb: "Web",
         buttonResume: "Resume",
@@ -129,7 +131,7 @@ function applyLanguage(lang) {
         if (element.tagName.toLowerCase() === "input" || element.tagName.toLowerCase() === "textarea") {
             element.placeholder = translations[selectedLang][key];
         } else {
-            element.innerText = translations[selectedLang][key];
+            element.innerHTML = translations[selectedLang][key];
         }
     });
 }
@@ -137,21 +139,40 @@ function applyLanguage(lang) {
 // page load apply the language
 document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+    const gridItems = document.querySelectorAll('.grid-item');
+    const observerOptions = {
+        threshold: 0.3,
+    };
+    const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal');
+                observer.unobserve(entry.target);  // Stop observing after animation triggers
+            }
+        });
+    };
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
     document.getElementById('language-select').value = savedLang;
     applyLanguage(savedLang);
+
+    gridItems.forEach(item => {
+        observer.observe(item);
+    });
+    
 });
 
 
 // Animation of Process section
 window.addEventListener('scroll', function () {
     const processSteps = document.querySelectorAll('.oneProcess');
-    const triggerBottom = window.innerHeight * 0.85; // 触发点
+    const triggerBottom = window.innerHeight * 0.85;
 
     processSteps.forEach(step => {
         const stepTop = step.getBoundingClientRect().top;
 
         if (stepTop < triggerBottom) {
-            step.classList.add('animate'); // 添加动画类
+            step.classList.add('animate');
         }
     });
 });
@@ -166,7 +187,7 @@ function filterProjects(category) {
             project.classList.add('hidden');
         }
     });
-}
+};
 
 // mouse move projects animation
 const slider = document.querySelector('.grid-container');
