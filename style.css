@@ -124,15 +124,19 @@ header label {
 
 .content-about h3, .content-contact h2, .content-team h2 {
     color: whitesmoke;
-    font-size: 35px;
+    font-size: 55px;
     padding-bottom: 15px;
 }
 
 .content-about .text-title-about {
     color: whitesmoke;
-    font-size: 23px;
+    font-size: 30px;
     padding-bottom: 10px;
 } 
+
+.content-about .textAbout {
+    font-size: 20px;
+}
 
 .content-home p, .content-about p, .content-contact p, .content-team p {
     color: whitesmoke;
@@ -268,7 +272,7 @@ header label {
 }
 
 .footer {
-    height: 100px;
+    height: 115px;
     width: 100%;
     display: flex;
     position: relative;
@@ -281,13 +285,17 @@ header label {
     margin-top: 20px;
 }
 
-.f-price, .f-team, .f-contact {
+.f-price, .f-team{
     position: fixed;
     bottom: 0;
 }
 
-.footer p {
-    margin: 15px auto 5px auto;
+/* , .f-contact  */
+
+.footer .logo {
+    margin: 10px auto 5px auto;
+    width: 50px;
+    height: 50px;
 }
 
 .footer .footer-mail {
@@ -361,6 +369,11 @@ header label {
 
 .grid-item.reveal:nth-child(odd) {
     animation: slideInLeft 1s ease-in-out forwards;
+    text-align: center;
+}
+
+.grid-item.reveal:nth-child(odd) .lastTextP {
+    text-align: center;
 }
 
 .grid-item.reveal:nth-child(even) {
@@ -661,7 +674,7 @@ header label {
     }
 
     .content-contact {
-        padding: 20px 20px 135px 20px;
+        padding: 20px 20px 0px 20px;
         margin-top: 16%;
     }
 
@@ -760,6 +773,10 @@ header label {
         padding-right: 8%;
     }
 
+    .content-about .textAbout {
+        font-size: 23px;
+    }
+
     .about-grid {
         grid-template-columns: 1fr;
     }
@@ -771,6 +788,11 @@ header label {
     .about-grid .image img, 
     .about-grid .text {
         margin-bottom: 15px;
+    }
+    
+
+    .grid-item.reveal:nth-child(odd) .lastTextP {
+        text-align: left;
     }
 
 
@@ -790,6 +812,10 @@ header label {
         margin-bottom: 10px;
         padding-bottom: 25px;
         border-bottom: 2px solid black;
+    }
+
+    .oneProcess p {
+        font-size: 20px;
     }
 
     .content-process h2 {
