@@ -100,6 +100,7 @@ header label {
         2px 2px 0px #000,  
         4px 4px 0px #333,  
         6px 6px 8px rgba(0, 0, 0, 0.5);
+    text-align: left;
 }
 
 .content-home p.pUnderSlogan {
@@ -130,9 +131,14 @@ header label {
 
 .content-about .text-title-about {
     color: whitesmoke;
-    font-size: 30px;
+    font-size: 27px;
     padding-bottom: 10px;
+    text-align: left;
 } 
+
+.content-about .lastTitle {
+    text-align: center;
+}
 
 .content-about .textAbout {
     font-size: 20px;
@@ -369,7 +375,6 @@ header label {
 
 .grid-item.reveal:nth-child(odd) {
     animation: slideInLeft 1s ease-in-out forwards;
-    text-align: center;
 }
 
 .grid-item.reveal:nth-child(odd) .lastTextP {
@@ -397,7 +402,7 @@ header label {
     color: whitesmoke;
     cursor: pointer;
     transition: background-color 0.3s;
-    width: 100px;
+    width: 120px;
     height: 50px;
     font-size: 17px;
 }
